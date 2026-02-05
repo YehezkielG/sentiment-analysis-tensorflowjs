@@ -58,7 +58,12 @@ body {
   border: none;
   color: inherit;
   resize: vertical;
+  background: none;
   transition: box-shadow .15s ease, border-color .15s ease;
+}
+
+.textArea::-webkit-scrollbar {
+ background: transparent;
 }
 
 /* Button */

@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import * as tf from "@tensorflow/tfjs";
 
-function padSequence(sequences:string[][],maxLen:number,padding = "post",truncating = "post",pad_value = 0) {
-  return sequences.map((seq:string[]) => {
+function padSequence(sequences: number[][], maxLen: number, padding = "post", truncating = "post", pad_value = 0) {
+  return sequences.map((seq: number[]) => {
     if (seq.length > maxLen) {      
       if (truncating === "pre") {
         seq.splice(0, seq.length - maxLen);
@@ -12,7 +12,7 @@ function padSequence(sequences:string[][],maxLen:number,padding = "post",truncat
       }
     }
     if (seq.length < maxLen) {
-      const pad = [];
+      const pad: number[] = [];
       for (let i = 0; i < maxLen - seq.length; i++) {
         pad.push(pad_value);
       }
@@ -22,6 +22,7 @@ function padSequence(sequences:string[][],maxLen:number,padding = "post",truncat
         seq = seq.concat(pad);
       }
     }
+    console.log(seq);
     return seq;
   });
 }
@@ -57,15 +58,15 @@ function App() {
     setInputText(event.target.value);
   };
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (model && Object.keys(wordIndex).length > 0) {
-      const inputWords = inputText
-        .toLowerCase()
-        .replace(/[\.,!?\(\)]/g, "")
-        .split(" ");
-      const score = predict(inputWords);
-      setScore(score);
+function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
+  event.preventDefault();
+  if (model && Object.keys(wordIndex).length > 0) {
+    const inputWords = inputText
+      .toLowerCase()
+      .replace(/[.,!?()]/g, "")
+      .split(" ");
+    const score = predict(inputWords);
+    setScore(score);
   }
 }
 function predict(inputText: string[]):number { 
