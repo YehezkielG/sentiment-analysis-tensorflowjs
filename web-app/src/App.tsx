@@ -94,33 +94,35 @@ function predict(inputText: string[]):number {
 
   return (
     <>
-      <h2>Sentiment Analysis with Tensorflow JS</h2>
-      <div>
-        this project will demonstrate sentiment analysis using tensorflow js,
-        react and typescript. the sentiment theme is based on movie reviews. the train data cave from 
+      <form onSubmit={handleSubmit} className="form">
+      <h2 className="title">Sentiment Analysis with Tensorflow JS</h2>
+      <p className="description">
+        This project demonstrates sentiment analysis using TensorFlow.js,
+        React and TypeScript. The sentiment theme is based on movie reviews. Training data comes from
         <a href="https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews" target="_blank" rel="noreferrer">
-          {" "}IMDB Movie Review Dataset
+          {' '}IMDB Movie Review Dataset
         </a>
-      </div>
-      <form action="">
+      </p>
         <div className="container">
           <textarea
             name="review"
             id="review"
             className="textArea"
+            placeholder="Type a movie review here..."
+            aria-label="movie review"
             onChange={handleChange}
           ></textarea>
-          <div className="btnContainer">
-              <input type="submit" className="submitBtn" onClick={handleSubmit} />
+          <div className="buttonContainer">
+            <button type="submit" className="submitBtn">Analyze</button>
           </div>
-        <div>
-          {score >= 0 && (
-            <div>
-              Sentiment: {score >= 0.5 ? "Positive" : "Negative"} (Confidence:
-              {((score >= 0.5 ? score : 1 - score) * 100).toFixed(2)}%)
-            </div>  
-          )}
-        </div>
+          <div>
+            {score >= 0 && (
+              <div className={`result ${score >= 0.5 ? 'positive' : 'negative'}`}>
+                <strong>Sentiment:</strong> {score >= 0.5 ? 'Positive' : 'Negative'}
+                <span className="confidence"> {' '}({((score >= 0.5 ? score : 1 - score) * 100).toFixed(2)}%)</span>
+              </div>
+            )}
+          </div>
         </div>
       </form>
     </>
