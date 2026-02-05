@@ -60,10 +60,17 @@ body {
   resize: vertical;
   background: none;
   transition: box-shadow .15s ease, border-color .15s ease;
+  appearance: none; 
 }
 
 .textArea::-webkit-scrollbar {
  background: transparent;
+}
+
+.textArea::-webkit-scrollbar-thumb {  
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  width: 4px;
 }
 
 /* Button */
