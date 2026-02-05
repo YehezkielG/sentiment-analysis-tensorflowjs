@@ -1,0 +1,63 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.textArea {
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  background-color: #ffffff; 
+  border: none;
+  height: 100px;
+  outline: none ;
+  color: #313131;
+}
+
+.submitBtn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #00fbff;
+  border-radius: 10px;
+  border: none;
+  display: block;
+  cursor: pointer;
+  color: black;
+  font-size: 12px;
+}
+
+.buttonContainer {
+  margin-top: 0 1rem;
+  display: flex;
+  justify-content: end;
+}
+.container{
+  margin: 0 auto;
+  width: 600px;
+}
