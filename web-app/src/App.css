@@ -44,7 +44,6 @@ body {
   background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
   border-radius: 12px;
   padding: 1.25rem;
-  box-shadow: 0 6px 20px rgba(2,6,23,0.6);
   border: 1px solid var(--glass);
 }
 
@@ -107,6 +106,13 @@ body {
 @media (max-width: 720px){
   .container{ padding: 1rem }
   .title{ font-size: 1.25rem }
+  body{
+    margin: 15px;
+    padding:0;
+  }
+  .textArea{ 
+    max-width: 90%;
+  }
 }
 .form{
   width: 100%;
